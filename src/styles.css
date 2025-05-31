@@ -1,1 +1,93 @@
-/* You can add global styles to this file, and also import other style files */
+/* The code below is use to change the font. It will use the font you imported */
+@font-face {
+    font-family: 'man-bold';
+    src: url('assets/font/man_bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'man-extrabold';
+    src: url('assets/font/man_extrabold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'man-extralight';
+    src: url('assets/font/man_extralight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'man-light';
+    src: url('assets/font/man_light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'man-medium';
+    src: url('assets/font/man_medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'man-reg';
+    src: url('assets/font/man_reg.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'man-semi';
+    src: url('assets/font/man_semi.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+/* Utility classes for each font */
+.man-bold {
+    font-family: 'man-bold', sans-serif;
+}
+
+.man-extrabold {
+    font-family: 'man-extrabold', sans-serif;
+}
+
+.man-extralight {
+    font-family: 'man-extralight', sans-serif;
+}
+
+.man-light {
+    font-family: 'man-light', sans-serif;
+}
+
+.man-medium {
+    font-family: 'man-medium', sans-serif;
+}
+
+.man-reg {
+    font-family: 'man-reg', sans-serif;
+}
+
+.man-semi {
+    font-family: 'man-semi', sans-serif;
+}
+
+.allow-preline {
+    white-space: pre-line;
+}
+
+.font-size-12 {
+    font-size: 12px;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}

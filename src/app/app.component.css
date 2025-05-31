@@ -1,0 +1,8 @@
+.full-screen-bg {
+    height: 100vh;
+    width: 100vw;
+    background-image: url('/assets/images/city_bg_v2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
