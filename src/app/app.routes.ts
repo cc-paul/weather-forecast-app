@@ -9,6 +9,10 @@ export const routes: Routes = [
     {
         path: 'home',
         loadComponent: () => import('./home/home.component').then(m => m.HomeComponent)
+    },
+    {
+        path: 'weather',
+        loadComponent: () => import('./weather/weather.component').then(m => m.WeatherComponent)
     }
 ];
 @NgModule({
