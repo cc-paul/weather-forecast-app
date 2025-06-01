@@ -37,9 +37,8 @@
           <table class="table table-bordered man-reg font-size-12 rounded-table">
             <thead class="table">
               <tr>
-                <th scope="col" class="d-none d-md-table-cell">City</th>
                 <th scope="col">Date</th>
-                <th scope="col">Temp (°C)</th>
+                <th scope="col">Temp (°F)</th>
                 <th scope="col" class="d-none d-md-table-cell">Description</th>
                 <th scope="col" class="d-none d-md-table-cell">Main</th>
                 <th scope="col" class="d-none d-md-table-cell">Pressure</th>
@@ -48,7 +47,6 @@
             </thead>
             <tbody>
               <tr>
-                <td class="d-none d-md-table-cell">{{ weather.name }}</td>
                 <td>{{ weather.dt * 1000 | date:'MM/dd/yyyy' }}</td>
                 <td>{{ weather.main.temp }}</td>
                 <td class="d-none d-md-table-cell">{{ weather.weather[0].description }}</td>
