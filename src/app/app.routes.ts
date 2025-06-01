@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './core/guard/auth.guard';
 
 export const routes: Routes = [
     {
@@ -8,11 +9,13 @@ export const routes: Routes = [
     },
     {
         path: 'home',
-        loadComponent: () => import('./home/home.component').then(m => m.HomeComponent)
+        loadComponent: () => import('./home/home.component').then(m => m.HomeComponent),
+        canActivate: [AuthGuard]
     },
     {
-        path: 'weather',
-        loadComponent: () => import('./weather/weather.component').then(m => m.WeatherComponent)
+        path: '**',
+        redirectTo: '',
+        pathMatch: 'full'
     }
 ];
 @NgModule({
