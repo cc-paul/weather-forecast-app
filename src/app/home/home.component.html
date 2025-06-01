@@ -9,8 +9,16 @@
                         <span class="input-group-text bg-white ">
                             <i class="bi bi-search"></i>
                         </span>
-                        <input type="text" class="form-control border-strat-0 man-reg font-size-12" placeholder="City...">
-                        <button type="button" class="btn btn-primary man-semi w-100 font-size-12 mt-2" (click)="toggleWeatherTable(true)">
+                        <input type="text" class="form-control border-strat-0 man-reg font-size-12" placeholder="City..." [(ngModel)]="city">
+                        <div *ngIf="errorMessage !== ''" class="alert alert-danger d-flex align-items-center w-100 mt-2 man-reg font-size-12" role="alert">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+                                <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                            </svg>
+                            <div>
+                                {{ errorMessage }}
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-primary man-semi w-100 font-size-12 mt-2" (click)="fetchWeather()">
                             <i class="bi bi-cloud me-2"></i>
                             Display Weather
                         </button>
@@ -21,39 +29,41 @@
     </div>
 </ng-container>
 
-<ng-container *ngIf="showWeatherTable">
-    <div class="d-flex flex-column justify-content-center align-items-center min-vh-100">
-        <div class="container">
-            <div class="row">
-                <div class="col-10 col-md-10 col-lg-10 mx-auto">
-                    <table class="table table-bordered man-reg font-size-12 rounded-table">
-                        <thead class="table">
-                            <tr>
-                                <th scope="col">Date</th>
-                                <th scope="col">Temp(F)</th>
-                                <th scope="col" class="d-none d-md-table-cell">Description</th>
-                                <th scope="col" class="d-none d-md-table-cell">Main</th>
-                                <th scope="col" class="d-none d-md-table-cell">Pressure</th>
-                                <th scope="col" class="d-none d-md-table-cell">Humidity</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>2025-05-31</td>
-                                <td>75.2</td>
-                                <td class="d-none d-md-table-cell">Clear sky</td>
-                                <td class="d-none d-md-table-cell">Clear</td>
-                                <td class="d-none d-md-table-cell">1012 hPa</td>
-                                <td class="d-none d-md-table-cell">45%</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <button type="button" class="btn btn-primary man-semi font-size-12 float-end" (click)="toggleWeatherTable(false)">
-                        <i class="bi bi-chevron-left me-2"></i>
-                        Back
-                    </button>
-                </div>
-            </div>
+<ng-container *ngIf="showWeatherTable && weather">
+  <div class="d-flex flex-column justify-content-center align-items-center min-vh-100">
+    <div class="container">
+      <div class="row">
+        <div class="col-10 col-md-10 col-lg-10 mx-auto">
+          <table class="table table-bordered man-reg font-size-12 rounded-table">
+            <thead class="table">
+              <tr>
+                <th scope="col">City</th>
+                <th scope="col">Date</th>
+                <th scope="col">Temp (°C)</th>
+                <th scope="col" class="d-none d-md-table-cell">Description</th>
+                <th scope="col" class="d-none d-md-table-cell">Main</th>
+                <th scope="col" class="d-none d-md-table-cell">Pressure</th>
+                <th scope="col" class="d-none d-md-table-cell">Humidity</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{ weather.name }}</td>
+                <td>{{ weather.dt * 1000 | date:'MM/dd/yyyy' }}</td>
+                <td>{{ weather.main.temp }}</td>
+                <td class="d-none d-md-table-cell">{{ weather.weather[0].description }}</td>
+                <td class="d-none d-md-table-cell">{{ weather.weather[0].main }}</td>
+                <td class="d-none d-md-table-cell">{{ weather.main.pressure }}</td>
+                <td class="d-none d-md-table-cell">{{ weather.main.humidity }}%</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <button type="button" class="btn btn-primary man-semi font-size-12 float-end" (click)="toggleWeatherTable(false)">
+            <i class="bi bi-chevron-left me-2"></i> Back
+          </button>
         </div>
+      </div>
     </div>
+  </div>
 </ng-container>
