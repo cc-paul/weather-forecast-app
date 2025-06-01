@@ -8,5 +8,9 @@ export const environment = {
     },
     pageLinks: {
         home: 'home'
+    },
+    weather: {
+        key: '78720df755f6417b2793b13a3b3871cf',
+        url: 'https://api.openweathermap.org/data/2.5/weather'
     }
 };
